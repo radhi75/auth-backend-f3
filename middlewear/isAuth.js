@@ -9,6 +9,7 @@ exports.isAuth = async (req, res, next) => {
       return res.status(400).send("you are not authorized");
     }
     const contacts = await contact.findById(decode.id);
+    console.log(contacts)
     req.user = contacts;
     next();
   } catch (error) {

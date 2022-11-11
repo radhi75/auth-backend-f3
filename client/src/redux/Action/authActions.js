@@ -1,4 +1,4 @@
-import { FAIL, GET_CURRENT, LOGIN, REGISTER } from "../ActionTypes/authTypes";
+import { FAIL, GET_CURRENT, LOGIN, LOGOUT, REGISTER } from "../ActionTypes/authTypes";
 import axios from "axios";
 import { alert_errors } from "./errorAction";
 export const register = (data, navigate) => async (dispatch) => {
@@ -39,4 +39,7 @@ export const get_current = () => async (dispatch) => {
   } catch (error) {
     dispatch({ type: FAIL, payload: error.response.data });
   }
+};
+export const logout = () => {
+  return { type: LOGOUT };
 };

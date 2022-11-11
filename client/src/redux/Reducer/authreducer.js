@@ -1,4 +1,4 @@
-import { GET_CURRENT, LOGIN, REGISTER } from "../ActionTypes/authTypes";
+import { GET_CURRENT, LOGIN, LOGOUT, REGISTER } from "../ActionTypes/authTypes";
 
 const initialState = {
   user: {},
@@ -17,6 +17,10 @@ const authreducer = (state = initialState, { type, payload }) => {
       return { ...state, user: payload.contacts };
     default:
       return state;
+    case LOGOUT:
+      localStorage.removeItem("token");
+
+      return { ...state, user: null };
   }
 };
 
